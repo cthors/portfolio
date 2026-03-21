@@ -64,10 +64,10 @@ function notificationDemo(){
 
 // Add a class for the type of page we're on, to apply page-specific styles:
 let page = window.location.pathname.split('/').pop();
-
-	console.log(window.location.pathname);
+console.log("window.location.pathname: " + window.location.pathname);
 
 if((page == "index.html") || (page === undefined)){
+	console.log("page index or undefined");
 	document.querySelector('body').classList.add('front-page');
 }
 else{
