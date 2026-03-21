@@ -1,0 +1,361 @@
+/* --- Theme color variables ---------------------------------------------- */
+
+body.soap-theme {
+	--page-bg: #303841;
+
+	--gradient-left: #b2494c;
+	--gradient-center: #b2494c;
+	--gradient-right: #55415d;
+
+	--behind: #94b09c;
+	--glow-left: #947a68;
+	--glow-center: #947a68;
+	--glow-right: #4e4d64;
+
+	--fp-text-bg: #555b76;
+	--fp-text: #afb5d0;
+	--right-text: #303841;
+
+	--home-link: #b2494c;
+
+	--dropdown: #94b09c;
+	--dropdown-link: #6f73ac;
+	--dropdown-special: #947a68;
+
+	--btn-txt: #aca53f;
+	--btn-outline: #848484;	
+
+	--menu-bg: #E0FFFF;
+	--menu-item:#0000A0;
+}
+
+body.roadtrip-theme{
+	--page-bg: #2a2222;
+
+	--gradient-left: #b6a455;
+	--gradient-center: #da4327;
+	--gradient-right: #848484;
+
+	--behind: #947a68;
+	--glow-left: #947a68;
+	--glow-center: #ffffff;
+	--glow-right: #4e4d64;
+
+	--fp-text-bg: #555b76;
+	--fp-text: #afb5d0;
+	--right-text: #293038;
+
+	--home-link: #b2494c;
+
+	--dropdown: #bd3018;
+	--dropdown-link: #b2494c;
+	--dropdown-special: #947a68;
+
+	--btn-txt: #aca53f;
+	--btn-outline: #848484;
+
+	--menu-bg:white;
+	--menu-item:#0000A0;
+}
+
+body.moon-theme {
+	--page-bg: #1d1c21;
+
+	--gradient-left: #140004;
+	--gradient-center: #140004;
+	--gradient-right: #132249;
+
+	--behind: #380f19;
+	--glow-left: #380f19;
+	--glow-center: #4e4d64;
+	--glow-right: #7c8651;
+
+	--fp-text-bg: #555b76;
+	--fp-text: #afb5d0;
+	--right-text: #939383;
+
+	--home-link: #aca53f;
+
+	--dropdown: #aca53f;
+	--dropdown-link: #6f73ac;
+	--dropdown-special: #947a68;
+
+	--btn-txt: #aca53f;
+	--btn-outline: #848484;
+
+	--menu-bg: #f0f0d5;
+	--menu-item:#0000A0;
+}
+
+/* --- CSS resets, etc ---------------------------------------------------- */
+
+* { border-spacing: 0px; }
+
+a img { display: block; }
+ 
+/* --- Fonts -------------------------------------------------------------- */
+
+* { font-family: Verdana; }
+
+#home-link { font-size: 32px; }
+
+#menu li {font-weight: bold;}
+
+/* --- Font colors -------------------------------------------------------- */
+
+#home-link { color: var(--home-link); }
+
+summary, details div { color: var(--dropdown); }
+
+details span.title{ color:var(--dropdown-special); }
+
+details a { color:var(--dropdown-link); }
+
+#right-content * { color:var(--fp-text); }
+
+#left-content * { color:var(--right-text); }
+
+/* --- Background colors -------------------------------------------------- */
+
+body { background-color: var(--page-bg); }
+
+#wide-middle {
+	background: linear-gradient(
+		to right,
+		var(--gradient-left) 0%,
+		var(--gradient-center) 55%,
+		var(--gradient-right) 75%,
+		var(--gradient-right) 100%
+	);
+}
+
+#content-middle {
+	background-color: var(--behind);
+	border-image: linear-gradient(
+		to right,
+		var(--glow-left) 0%,
+		var(--glow-center) 60%,
+		var(--glow-right) 70%,
+		var(--glow-right) 100%) 1;
+}
+
+#right-content {
+	background-color: var(--fp-text-bg);
+}
+
+/* --- Layout containers -------------------------------------------------- */
+
+#wide-middle {
+	display: flex;
+	align-items: stretch; /* stretch vertically */
+	justify-content: center; /* center horizontally */
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#content-middle {
+	display: flex;
+	align-items: stretch; /* stretch vertically */
+	gap: 5px;
+	border-top: 20px solid;
+} 
+
+#right-content {
+	display: flex;
+	flex-direction: row;
+}
+
+#left-content {
+	padding: 0px 15px;
+}
+
+/* --- Other paddings ----------------------------------------------------- */
+
+footer{ padding-bottom: 5px; }
+
+/* --- Theme-changing buttons --------------------------------------------- */
+
+#color-controls button {
+	border:none;
+	background:none;
+	padding:5px;
+	margin-top:7px;
+	margin-bottom:2px;
+	color: var(--btn-txt);
+}
+
+#color-controls button:hover {
+	filter:brightness(2.8) saturate(1.5);
+}
+
+#color-controls button.curr {
+	border: 2px solid var(--btn-outline);
+	border-radius: 5px;
+	pointer-events: none;
+}
+
+/* --- Breadcrumbs -------------------------------------------------------- */
+
+#breadcrumb a, span {
+	text-decoration: none;
+	text-transform: uppercase;
+	size:10px;
+	font-family:verdana;
+	color: #70789c;
+}
+
+/* --- Drop-down menu - common styles ------------------------------------- */
+
+/* resets */
+nav * {
+	list-style:none;
+	margin:0;
+	padding:0;
+	display:block;
+}
+
+nav a {
+	text-decoration: none;
+}
+
+/* tab area */
+nav > ul > li > a {
+	color: var(--menu-item);
+	background-color: var(--menu-bg);
+	display:block;
+	padding:6px;
+	border-radius: 8px 8px 0 0;
+	opacity: 0.8;
+}
+
+/* drop-down area */
+#menu nav ul ul {
+	background-color: var(--menu-bg);
+	color: var(--menu-item);
+}
+
+.hidden {
+	display: none;
+}
+
+#menu > a {
+	padding-botton:5px;
+}
+
+/* --- Desktop view: wide ------------------------------------------------- */
+
+@media (min-width: 1024px) {
+
+	#content-middle{
+		max-width: 1400px;
+	}
+
+	body.front-page #content-middle {
+		padding-left:100px;
+	}
+
+	body.content-page #wide-middle {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	/* make the menu a dropdown rather than a menu bar */
+	#menu {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+
+	/* drop-down area */
+	#menu nav ul ul {
+		position: absolute;
+		right: 8px;
+		z-index: 1000;
+		opacity: 0.8;
+		padding: 10px 10px 10px 10px;
+	}
+
+	/* menu items */
+	#menu ul ul li {
+		padding: 5px;
+	}
+}
+
+/* --- Tablet view: square ------------------------------------------------ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+	body.front-page #content-middle{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	/* make the menu a dropdown rather than a menu bar */
+	#menu {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+
+	/* drop-down area */
+	#menu nav ul ul {
+		position: absolute;
+		right: 8px;
+		z-index: 1000;
+		opacity: 0.8;
+		padding: 10px 10px 10px 10px;
+	}
+
+	/* menu items */
+	#menu ul ul li {
+		padding: 5px;
+	}
+}
+
+/* --- Mobile view: tall -------------------------------------------------- */
+
+@media (max-width: 767px) {
+
+	body.content-page #content-middle{
+		flex-direction: column-reverse;
+		align-items: stretch;
+		padding:0;
+	}
+
+	body.content-page #right-content{
+		justify-content: center; /* center horizontally */
+	}
+
+	body.front-page #content-middle{
+		flex-direction: column;
+		margin: 40px;
+	}
+
+	/* make the menu a menu bar rather than a dropdown */
+	#menu {
+		display: flex;
+		justify-content: stretch;
+		flex-direction:column;
+	}
+
+	/* drop-down area */
+	#menu nav ul ul {
+		position: relative;
+		padding: 0px;
+	}
+
+	/* menu items */
+	#menu ul ul li {
+		padding: 10px;
+	}
+}
+
+/* --- Other page-dependant styles----------------------------------------- */
+
+body.front-page #right-content {
+	flex-direction: column;
+	justify-content: center; /* center vertically */
+  	width: 200px;
+  	box-sizing: border-box; /* stops padding from adding onto width */
+  	padding: 25px 15px;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/png" href="assets/favicon.svg">
+		<link rel="stylesheet" href="styles.css">
+		<script src="script.js" defer></script>
+		<title>Casey's Portfolio</title>
+	</head>
+
+	<body class="soap-theme" data-page=2>
+
+		<div id="menu">
+
+			<span>
+				<a href="index.html" id="home-link">
+					Portfolio
+				</a>
+				<span id="breadcrumb"></span>
+			</span>
+
+			<nav>
+				<ul>
+					<li>
+						<a href="#">Navigation</a>
+						<ul>
+							<li>
+								<a href="lamp.html">Sculptural Lamp</a>
+							</li>
+							<li>
+								<a href="web.html" class="current">Website Design</a>
+							</li>
+							<li>
+								<a href="panels.html">Light Panels</a>
+							</li>
+							<li>
+								<a href="resources.html">Resources</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<div id="wide-middle">
+			<div id="content-middle">
+				<div id="left-content">
+					<h4>Website Design</h4>
+					<p>These are a couple pages from another personal website I designed and created. I coded the site using vanilla JavaScript, html, and CSS.</p>
+					<p>The repeating pixel graphics were generated programmatically, then saved as image files and added to the site. I created them with the Gnu Image Manipulation Program, using a script I wrote in GIMP's scripting language, Script-Fu (a dialect of Scheme).</p>
+					<a href="resources.html?pg=2">Resources Page</a>
+				</div>
+				
+				<div id="right-content">
+					<a href="assets/img/site_content_large.jpg">
+						<img src="assets/thumb/site_content.jpg" width="200" alt="page design thumbnail #1" title="content page" />
+					</a>
+					<a href="assets/img/site_home_large.jpg">
+						<img src="assets/thumb/site_home.jpg" width="200" alt="page design thumbnail #2" title="landing page" />
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<table width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="center">
+					<div id="color-controls">
+						<button data-scheme="soap-theme" class="curr">Soap Theme</button>
+						<button data-scheme="roadtrip-theme">Roadtrip Theme</button>
+						<button data-scheme="moon-theme">Moon Theme</button>
+					</div>
+					<footer>
+						<font color="#947a68" face="verdana">Casey Thorsen, 2026 &nbsp;</font>
+						<a href="mailto:kr567221@dal.ca">
+							<font color="#6f73ac" face="verdana">kr567221@dal.ca</font>
+						</a>
+					</footer>
+					<details>
+						<summary>
+							Radio
+						</summary>
+						<audio controls>
+							<source src="assets/Kirk_Osamayo-Dip.mp3" type="audio/mpeg">
+							Your browser does not support the audio element.
+						</audio><br/>
+						<div><span class="title">Title: </span>Dip by Kirk Osamayo</div>
+						<div><span class="title">Author: </span>Nicholas Avraamides</div>
+						<div><span class="title">Source: </span><a href="https://freemusicarchive.org/music/kirk-osamayo/blue-season-4/dip/">freemusicarchive.org</a></div>
+						<div><span class="title">License: </span><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div>
+					</details>
+				</td>
+			</tr>
+		</table>
+		
+	</body>
+</html>
