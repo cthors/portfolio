@@ -324,6 +324,7 @@ nav > ul > li > a {
 
 	body.content-page #right-content{
 		justify-content: center; /* center horizontally */
+		max-width:200px;
 	}
 
 	body.front-page #content-middle{
