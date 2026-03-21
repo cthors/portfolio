@@ -324,7 +324,6 @@ nav > ul > li > a {
 
 	body.content-page #right-content{
 		justify-content: center; /* center horizontally */
-		max-width:200px;
 	}
 
 	body.front-page #content-middle{
@@ -356,7 +355,7 @@ nav > ul > li > a {
 body.front-page #right-content {
 	flex-direction: column;
 	justify-content: center; /* center vertically */
-  	width: 200px;
+  	max-width: 200px;
   	box-sizing: border-box; /* stops padding from adding onto width */
   	padding: 25px 15px;
 }
