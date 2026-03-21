@@ -64,7 +64,7 @@ function notificationDemo(){
 
 // Add a class for the type of page we're on, to apply page-specific styles:
 let page = window.location.pathname.split('/').pop();
-if(page=="index.html" || page==""){
+if(page=="index.html" || page==null){
 	document.querySelector('body').classList.add('front-page');
 }
 else{
