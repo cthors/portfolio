@@ -107,9 +107,9 @@ a img { display: block; }
 
 summary, details div { color: var(--dropdown); }
 
-details span.title{ color:var(--dropdown-special); }
+details span.title, footer span { color:var(--dropdown-special); }
 
-details a { color:var(--dropdown-link); }
+#footer-area span ~ a { color:var(--dropdown-link); }
 
 #right-content * { color:var(--fp-text); }
 
@@ -119,7 +119,7 @@ details a { color:var(--dropdown-link); }
 
 body { background-color: var(--page-bg); }
 
-#wide-middle {
+#wide-middle, #wide-holder {
 	background: linear-gradient(
 		to right,
 		var(--gradient-left) 0%,
@@ -143,12 +143,23 @@ body { background-color: var(--page-bg); }
 	background-color: var(--fp-text-bg);
 }
 
+#color-grid {
+	background-color: var(--behind);
+}
+
 /* --- Layout containers -------------------------------------------------- */
+
+#wide-holder{
+	width:100%;
+}
 
 #wide-middle {
 	display: flex;
 	align-items: stretch; /* stretch vertically */
 	justify-content: center; /* center horizontally */
+}
+
+#wide-middle, #wide-holder{
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
@@ -169,7 +180,17 @@ body { background-color: var(--page-bg); }
 	padding: 0px 15px;
 }
 
-/* --- Other paddings ----------------------------------------------------- */
+/* --- Footer area -------------------------------------------------------- */
+
+table#footer-area{
+	width:100%;
+	cellspacing:0;
+	cellpadding:0;
+}
+
+table#footer-area td{
+	align:center;
+}
 
 footer{ padding-bottom: 5px; }
 
@@ -196,7 +217,7 @@ footer{ padding-bottom: 5px; }
 
 /* --- Breadcrumbs -------------------------------------------------------- */
 
-#breadcrumb a, span {
+#breadcrumb a, #breadcrumb span {
 	text-decoration: none;
 	text-transform: uppercase;
 	size:10px;
@@ -219,6 +240,7 @@ nav a {
 }
 
 /* tab area */
+
 nav > ul > li > a {
 	color: var(--menu-item);
 	background-color: var(--menu-bg);
@@ -229,10 +251,14 @@ nav > ul > li > a {
 }
 
 /* drop-down area */
-#menu nav ul ul {
+nav ul a + ul {
 	background-color: var(--menu-bg);
 	color: var(--menu-item);
 }
+/*#menu nav ul ul {
+	background-color: var(--menu-bg);
+	color: var(--menu-item);
+}*/
 
 .hidden {
 	display: none;
@@ -348,6 +374,10 @@ nav > ul > li > a {
 	#menu ul ul li {
 		padding: 10px;
 	}
+
+	#container-gallery {
+		justify-content: center;
+	}
 }
 
 /* --- Other page-dependant styles----------------------------------------- */
@@ -358,4 +388,105 @@ body.front-page #right-content {
   	max-width: 200px;
   	box-sizing: border-box; /* stops padding from adding onto width */
   	padding: 25px 15px;
+}
+
+/* --- Gallery Page ------------------------------------------------------- */
+
+#container-gallery {
+	margin: 0 auto;
+	max-width: 1000px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	background-color: var(--behind);
+	padding: 8px 0; /* top & bottom only */
+}
+
+#container-gallery > * {
+	min-width: 0;
+}
+
+#container-gallery > *:nth-child(4) {
+	align-self: stretch;
+	background-color: ;
+}
+
+#container-gallery [alt*="thumbnail"] {
+	width: 200px;
+	height: 200px;
+	border:3px solid black;
+	padding:8px;
+}
+
+#gallery-word{
+	align-self: flex-start;
+	min-width: 200px;
+	align-self: stretch;
+}
+
+#gallery-word h1 {
+	text-align: center;
+	background-color: var(--behind);
+	color: var(--home-link);
+}
+
+#container-gallery video {
+	max-width:300px;
+}
+
+#container-gallery span {
+	background: linear-gradient(
+		to right,
+		var(--gradient-left) 0%,
+		var(--gradient-center) 15%,
+		var(--gradient-right) 55%,
+		var(--gradient-right) 100%);
+}
+
+#container-gallery span:first-child {
+	background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+}
+
+/* --- Non-nav list styles ------------------------------------------------ */
+
+ul {
+	list-style-type: square;
+}
+
+#right-content ol {
+	padding-right: 10px;
+	margin-left: 10px;
+	list-style-type: upper-roman;
+}
+
+ul li::marker { color: var(--home-link); }
+
+/* --- Color page ------------------------------------------------------- */
+
+#color-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	justify-items: start;
+	color: var(--right-text);
+	column-gap: 10px;
+	row-gap: 5px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#color-grid > *:nth-child(even){
+	justify-self:end;
+}
+
+#color-grid > *:nth-child(odd){
+	justify-self:flex-start;
+}
+
+#color-grid > :first-child,
+#color-grid > :last-child {
+	grid-column: 1 / -1;
+	justify-self: center;
 }

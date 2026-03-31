@@ -22,7 +22,9 @@ const pageKey = [	{link:"index.html", text:"Home"},
 					{link:"lamp.html", text:"Sculptural Lamp"},
 					{link:"web.html", text:"Website Design"},
 					{link:"panels.html", text:"Light Panels"},
-					{link:"resources.html", text:"Resources"}	];
+					{link:"resources.html", text:"Resources"},
+					{link:"gallery.html", text:"Gallery"},
+					{link:"test.html", text:"Colors"}	];
 
 // parameter that only exists if this page was reached via a link within another page
 const params = new URLSearchParams(window.location.search);
@@ -48,17 +50,6 @@ currLink.href = pageKey[currPgCode].link;
 currLink.innerHTML = pageKey[currPgCode].text;
 document.querySelector('#breadcrumb').appendChild(arrow);
 document.querySelector('#breadcrumb').appendChild(currLink);
-
-// JS Feature: Notification
-
-// add an item to the menu to deomonstate a popup notification
-const li = document.createElement('li');
-li.innerHTML = '<a href="#" onclick="notificationDemo()">About</a>';
-document.querySelector('#menu nav ul ul').appendChild(li);
-
-function notificationDemo(){
-	window.alert('Hello, Welcome to my portfolio.\n\n If you have any interesting links to add to the Resources page, feel free to email me at the address below :)');
-}
 
 // JS Feature: Conditional
 
@@ -107,8 +98,10 @@ function setColorScheme(e){
 	let currBtn = e.target;
 	let colorScheme = currBtn.dataset.scheme;
 
+	body.style.cssText = ''; // gets rid of the theme overrides
+
 	if(localStorage.getItem('colorScheme')==null){
-		body.classList.remove('soap-scheme'); // remove the default scheme (soap)
+		body.classList.remove('soap-theme'); // remove the default scheme (soap)
 	}
 	else{
 		body.classList.remove(localStorage.getItem('colorScheme')); // remove the last scheme used
@@ -123,6 +116,9 @@ function setColorScheme(e){
 	currBtn.className = 'curr'; // update the color scheme picker
 	body.classList.add(colorScheme); // add the current color scheme
 	localStorage.setItem('colorScheme', colorScheme); // save it
+
+	// if on color changing form page, update the color pickers
+	setColorForm();
 }
 
 // JS Feature: Event Handler
@@ -143,4 +139,27 @@ function zoomIn(e){
 
 function zoomOut(e){
 	e.target.style.filter = '';
+}
+
+// a function for the color changing form page
+// runs after DOMContentLoaded so the theme will be set already
+function setColorForm(){
+	let colorSwatchBtns = document.querySelectorAll('#color-grid input[type="color"]');
+
+	colorSwatchBtns.forEach(input => {
+		let varString = "--" + input.dataset.var;
+		input.value = getComputedStyle(document.body).getPropertyValue(varString);
+	});
+}
+
+function updateColorsFromForm(){
+
+	let colorSwatchBtns = document.querySelectorAll('#color-grid input[type="color"]');
+
+	colorSwatchBtns.forEach(input => {
+		let varString = "--" + input.dataset.var;
+		let val = input.value;
+
+		document.body.style.setProperty(varString, val);
+	});
 }

@@ -9,7 +9,7 @@
 		<title>Casey's Portfolio</title>
 	</head>
 
-	<body class="soap-theme" data-page=3>
+	<body class="soap-theme" data-page=6 onload="setColorForm()">
 
 		<div id="menu">
 
@@ -49,22 +49,31 @@
 			</nav>
 		</div>
 
-		<div id="wide-middle">
-			<div id="content-middle">
-				<div id="left-content">
-					<h4>Light Panels</h4>
-					<p>This was a collaborative project where I added non-addressable LEDs to decorative panels as a proof of concept. One of the panels is meant to depict falling, with a denser distribution of lights as the viewer's eye moves down. The other panel depicts constellations.</p>
-					<p>Since the strand of lights was pre-fabricated, I tried to use the color of the individual LEDs to distinguish between different constellations. Since the strand had a white mode and a color mode, this created an interesting effect where the constellations were much less apparent when the lights were set to white mode. This concept could be further developed to create a hidden pattern or meaning that can be incidentally revealed during the normal operation of a device.</p>
+		<div id="wide-holder">
+			<form id="color-form">
+				<div id="color-grid">
+					<div>
+						<b>Recolor</b> - A test page to view different color combinations.
+					</div>
+					<span>
+						<label for="pgBgColor">Page Background</label>
+						<input id="pgBgColor" type="color" data-var="page-bg">
+					</span>
+					<span>
+						<input id="txtBgColor" type="color" data-var="behind">
+						<label for="txtBgColor">Inner Background</label>
+					</span>
+					<span>
+						<label for="menuColor">Menu</label>
+						<input id="menuColor" type="color" data-var="menu-bg">
+					</span>
+					<span>
+						<input id="brightTxtColor" type="color" data-var="home-link">
+						<label for="brightTxtColor">Bright Text</label>
+					</span>
+					<input type="button" value="Apply Colors" onclick="updateColorsFromForm(event)">
 				</div>
-				
-				<div id="right-content">
-					<video width="200" controls autoplay loop muted>
-						<source src="assets/vid/constellations.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-					<img src="assets/thumb/falling.jpg" width="200" alt="decorative light panel" />
-				</div>
-			</div>
+			</form>
 		</div>
 
 		<table id="footer-area">
